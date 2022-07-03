@@ -5,8 +5,8 @@ on:
     branches:
       - main
     # Optionally configure to run only for specific files. For example:
-    # paths:
-   - "baka-onichan/**"
+     paths:
+   - "public/index.html"
 
 jobs:
   deploy_live_website:
