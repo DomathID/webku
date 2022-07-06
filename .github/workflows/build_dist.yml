@@ -1,23 +1,36 @@
-name: Deploy to Preview Channel
+
+
+name: Webpack
 
 on:
+  push:
+    branches: [ master ]
   pull_request:
-    # Optionally configure to run only for specific files. For example:
-    # paths:
-    #- "website/**"
+    branches: [ master ]
+
 
 jobs:
-  build_and_preview:
+  
+  build:
+    
     runs-on: ubuntu-latest
+
+    
     steps:
+      
       - uses: actions/checkout@v2
-      # Add any build steps here. For example:
-      - run: npm ci && npm run build
-      - uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: "${{ secrets.GITHUB_TOKEN }}"
-          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
-          expires: 30d
-          projectId: websiteonichan
-        env:
-          FIREBASE_CLI_PREVIEWS: baka-onichan
+
+      
+      - name: install dependencies
+        run: npm install
+      - name: Build live2d_bundle.js
+        run: npm run build:prod
+      - name: Push to Github
+        run: |
+          git config --global user.name "DomathID"
+          git config --global user.email "yuidev1337@yahoo.com"
+          git add dist
+          git commit -m "Auto built from ${{ github.sha }}"
+          git push
+    env:
+      ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
