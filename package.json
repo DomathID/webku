@@ -10,7 +10,7 @@
     "serve": "serve -p 5001",
     "clean": "rimraf dist"
   },
-  "author": "",
+  "author": "dmth",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.18.0",
     "@typescript-eslint/parser": "^2.18.0",
