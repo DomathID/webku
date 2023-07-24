@@ -28,7 +28,7 @@ jobs:
       - name: Push to Github
         run: |
           git config --global user.name "DomathID"
-          git config --global user.email "yuidev1337@yahoo.com"
+          git config --global user.email "bangdompret@gmail.com"
           git add dist
           git commit -m "Auto built from ${{ github.sha }}"
           git push
