@@ -2,7 +2,7 @@
   "name": "live2dweb",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": " one.html",
   "scripts": {
     "start": "webpack-dev-server --progress --devtool inline-source-map",
     "build": "webpack --mode development --devtool inline-source-map",
